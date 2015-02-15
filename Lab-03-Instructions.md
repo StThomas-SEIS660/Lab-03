@@ -17,7 +17,7 @@ Create your Vagrant VM and log into it.
 
 Clone the Github repository to your VM, in your home directory **on the VM**.
 Create a file <your email>-testfile.md, e.g. stud0001-testfile.md. 
-Optionally, put some Markdown content in it. ([What's Markdown?])(https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+Optionally, put some Markdown content in it. ([What's Markdown?](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet))
 Push your change back to Github. 
 
 ## Part 2
