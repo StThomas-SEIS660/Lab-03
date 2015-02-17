@@ -74,18 +74,22 @@ Now, output the tree to a file. How?
 Wipe the VM & reload
 Create your Vagrant VM and log into it. 
 
+Why did I make the directory structure so detailed? This is typical of setting up infrastructure as code - you need to be able to maintain focus and successfully set up instructions that are both complicated and yet repetitive. 
+
 
 ## Part 2
 
-**Set up a Github.com**
+**Set up Github.com & fork this lab**
 
 Go to http://github.com and set up a user account. 
 
 Review https://help.github.com/articles/fork-a-repo/
 
-Go to https://github.com/StThomas-SEIS660/Lab-03 and fork that repo. 
+Go to https://github.com/StThomas-SEIS660/Lab-03 and fork the repo. Press the Fork button at top right:
 
-![fork](fork.jpg)
+![fork](resources/fork.jpg)
+
+
 
 **Install git**
 
