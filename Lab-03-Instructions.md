@@ -6,9 +6,8 @@ In this lab, you will get a very simple introduction to the concept of "infrastr
 **Prerequisites**
 
 You must have run the Linux tutorial (or be comfortable otherwise with Linux command-line tools). 
-You must have successfully created your own virtual machine (VM) using Vagrant. 
 
-There are two versions of the lab instructions: brief and full. If you are advanced with Linux, the brief instructions should suffice. 
+You must have successfully created your own virtual machine (VM) using Vagrant. 
 
 You will do the exercises on your new Vagrant VM. 
 
@@ -32,12 +31,8 @@ Using the skills you learned in the previous lab,  perform the following steps:
 
 * Directory D should contain G, H and I
 
-
-    Basic: You should be able to do this using just two commands.
-
-    Advanced: do it using one command, repeated several times.  
-
-    Professional: do it using one command on one line. 
+Every directory should have a file in it, with the letter of the directory doubled in lower case. E.g., directory A should have aa, F would have ff, etc. 
+    
 
 **Install and use tree**
 
