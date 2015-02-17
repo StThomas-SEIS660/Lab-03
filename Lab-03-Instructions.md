@@ -12,14 +12,6 @@ You must have successfully created your own virtual machine (VM) using Vagrant.
 You will do the exercises on your new Vagrant VM. 
 
 ## Part 1 ##
-Create your Vagrant VM and log into it. 
-
-Clone the Github repository to your VM, in your home directory **on the VM**.
-Create a file <your email>-testfile.md, e.g. stud0001-testfile.md. 
-Optionally, put some Markdown content in it. ([What's Markdown?](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet))
-Push your change back to Github. 
-
-## Part 2
 
 Using the skills you learned in the previous lab,  perform the following steps:
 
@@ -31,18 +23,93 @@ Using the skills you learned in the previous lab,  perform the following steps:
 
 * Directory D should contain G, H and I
 
+* Directory H should contain J and K
+
+
 Every directory should have a file in it, with the letter of the directory doubled in lower case. E.g., directory A should have aa, F would have ff, etc. 
-    
 
 **Install and use tree**
 
-Install tree (sudo apt-get install tree)
+Install tree 
 
-Use it to inspect your directory structure
+    vagrant@precise64~: sudo apt-get install tree
 
-Copy and paste the output of tree to ... 
+Use it to inspect your directory structure. It should look like:
+
+````
+vagrant@precise64:~$ tree
+
+|-- A
+|   |-- aa
+|   |-- B
+|   |   `-- bb
+|   |-- C
+|   |   `-- cc
+|   `-- D
+|       `-- dd
+|-- C
+|   |-- cc
+|   |-- E
+|   |   `-- ee
+|   `-- F
+|       `-- ff
+|-- D
+|   |-- dd
+|   |-- G
+|   |   `-- gg
+|   |-- H
+|   |   |-- hh
+|   |   |-- J
+|   |   |   `-- jj
+|   |   `-- K
+|   |       `-- kk
+|   `-- I
+|       `-- ii
+````
+
+Now, output the tree to a file. How? 
+
+    vagrant@precise64:~$tree > tree.txt
 
 Wipe the VM & reload
+Create your Vagrant VM and log into it. 
+
+
+## Part 2
+
+**Set up a Github.com**
+
+Go to http://github.com and set up a user account. 
+
+Review https://help.github.com/articles/fork-a-repo/
+
+Go to https://github.com/StThomas-SEIS660/Lab-03 and fork that repo. 
+
+![fork](fork.jpg)
+
+**Install git**
+
+    sudo apt-get install git
+    
+Change to the /vagrant directory. 
+
+    cd /vagrant
+
+This is the same as your /home/student/\<studentID>/vagrant directory. Anything you put there on the VM side will be available after you destroy the machine, on the host side.
+
+
+
+
+[consider drawing a picture] 
+
+
+
+
+Clone the Github repository you forked as Lesson 03 to your VM, in your /vagrant directory **on the VM**. 
+
+Create a file <your email>-testfile.md, e.g. stud0001-testfile.md. 
+Optionally, put some Markdown content in it. ([What's Markdown?](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet))
+Push your change back to Github. 
 
 ##Part 3
 
