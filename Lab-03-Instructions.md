@@ -286,7 +286,7 @@ vagrant@precise64:/vagrant/Lab-03$
 
 Finally, go back to your browser and issue a pull request:
 
-![pull](resources/1.jpg)
+![pull](resources/pull.jpg)
 
 There is much to learn about git and this lab is not intended to be a full tutorial. We will cover further aspects as necessary. 
 
