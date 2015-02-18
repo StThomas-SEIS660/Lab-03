@@ -88,7 +88,7 @@ Review https://help.github.com/articles/fork-a-repo/
 Go to https://github.com/StThomas-SEIS660/Lab-03 and fork the repo. Press the Fork button at top right:
 
 ![fork](resources/fork.jpg)
-![pull](resources/1.jpg)
+
 
 Now, go to your home account on Github and find the URL for the forked repository. 
 
@@ -286,8 +286,7 @@ vagrant@precise64:/vagrant/Lab-03$
 
 Finally, go back to your browser and issue a pull request:
 
-![pull](./resources/pulllreq.jpg)
-
+![pull](resources/1.jpg)
 
 There is much to learn about git and this lab is not intended to be a full tutorial. We will cover further aspects as necessary. 
 
