@@ -74,7 +74,16 @@ Now, output the tree to a file. How?
 
 Why did I make the directory structure so detailed? This is typical of setting up infrastructure as code - you need to be able to maintain focus and successfully set up instructions that are both complicated and yet repetitive. 
 
-Exit your VM. The next section is done on the main server, not in your VM. 
+Exit and destroy your VM. 
+
+````
+vagrant@precise64:~$exit
+teststud@seis660:~/vagrant$ vagrant destroy -f
+==> default: Forcing shutdown of VM...
+==> default: Destroying VM and associated drives...
+````
+
+The next section is done on the main server, not in your VM. 
 
 ## Part 2: Working with git
 
@@ -98,47 +107,46 @@ Instead, it should look like this:
 
     https://github.com/your_Github_name/Lab-03
 
-Clone the Github repository you forked as Lab-03 to your home directory /home/student/YourID/. 
+Clone the Github repository you forked as Lab-03 to your home directory /home/student/YourID/. Go into it and verify the contents look as below. Notice the username YourID; **this must be replaced with your Github user name**. 
 
 ````
-teststud@seis660:~$ git clone https://github.com/YourID/Lab-03.git
+teststud@seis660:~$ git clone https://github.com/CharlesTBetz/Lab-03.git
 Cloning into 'Lab-03'...
-remote: Counting objects: 43, done.
-remote: Compressing objects: 100% (26/26), done.
-remote: Total 43 (delta 11), reused 42 (delta 10)
-Unpacking objects: 100% (43/43), done.
+remote: Counting objects: 78, done.
+remote: Compressing objects: 100% (60/60), done.
+remote: Total 78 (delta 31), reused 58 (delta 11)
+Unpacking objects: 100% (78/78), done.
 Checking connectivity... done.
-teststud@seis660:~$ 
-
+teststud@seis660:~$ cd Lab-03/
+teststud@seis660:~/Lab-03$ ls
+Lab-03-Instructions.md	LICENSE  README.md  resources  starter.sh  Vagrantfile
 ````
-
-Notice the username YourID; **this must be replaced with your Github user name**. 
 
 **Try git out**
 
-CD to the new Lab-03 directory that git created:
+Be sure you are in the new Lab-03 directory that git created:
 
-    vagrant@precise64:~$ cd Lab-03/
+    vagrant@precise64:~$ cd ~/Lab-03/
 
 Create a file called myStudentID-testfile, e.g. stud0001-testfile.md.
 
-    nano MyStudentID-testfile.md 
+    teststud@seis660:~/Lab-03$ nano teststud-testfile.md 
     
 Put some Markdown content in it, starting with  the phrase "Hello World." ([What's Markdown?](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)).
 
-Exit nano.
+Exit nano (ctrl-X, saving as prompted).
 
 Add your file to your git repository
 
-    git add myStudentID-testfile.md
-    git commit "my first commit"
+
+    teststud@seis660:~/Lab-03$ git add teststud-testfile.md 
+    teststud@seis660:~/Lab-03$ git commit -m "my first commit"
     
 You will get:
 
 ````
-vagrant@precise64:~/Lab-03$ git commit -m "my first commit"
-[master 5c9b944] my first commit
- Committer: vagrant <vagrant@precise64.(none)>
+[master 312919f] my first commit
+ Committer: test <teststud@seis660.gps.stthomas.edu>
 Your name and email address were configured automatically based
 on your username and hostname. Please check that they are accurate.
 You can suppress this message by setting them explicitly:
@@ -156,18 +164,24 @@ After doing this, you may fix the identity used for this commit with:
 
 Disregard the issue with your user name and email for now.
 
-Now, edit the file again. Add "Hello Again" as a second line. You have now made a change, relative to what you committed. You can see that change through issuing the command 'git diff':
+Now, edit the file again. 
+
+    teststud@seis660:~/Lab-03$ nano teststud-testfile.md
+
+Add "Hello Again" as a second line and exit nano in the usual way. 
+
+You have now made a change, relative to what you committed. You can see that change through issuing the command 'git diff':
 
 ````
-vagrant@precise64:~/Lab-03$ git diff
+teststud@seis660:~/Lab-03$ git diff
 diff --git a/teststud-testfile.md b/teststud-testfile.md
-index 557db03..fcb9459 100644
+index 9801343..fcb9459 100644
 --- a/teststud-testfile.md
 +++ b/teststud-testfile.md
-@@ -1 +1,3 @@
+@@ -1,2 +1,3 @@
  Hello World
 +Hello Again
-+
+
 ````
 
 We will be covering git in more detail as we go, but this clearly shows that Hello Again has been added. 
@@ -175,20 +189,20 @@ We will be covering git in more detail as we go, but this clearly shows that Hel
 Commit it again (you only need to add it once): 
 
 ````
-vagrant@precise64:~/Lab-03$ git commit teststud-testfile.md -m "second commit"
-[master b61fe73] second commit
- Committer: vagrant <vagrant@precise64.(none)>
+teststud@seis660:~/Lab-03$ git commit teststud-testfile.md -m "second commit"
+[master becf9ae] second commit
+ Committer: test <teststud@seis660.gps.stthomas.edu>
 [ ... email error message ... ]
 
  1 file changed, 1 insertion(+)
 ````
 
-Go back into nano and replace "World" with "Mars." 
+Go back into nano and replace "World" with "Mars." Exit nano. 
 
 Run git diff again:
 
 ````
-vagrant@precise64:~/Lab-03$ git diff
+teststud@seis660:~/Lab-03$ git diff
 diff --git a/teststud-testfile.md b/teststud-testfile.md
 index fcb9459..dcc7a8e 100644
 --- a/teststud-testfile.md
@@ -197,13 +211,15 @@ index fcb9459..dcc7a8e 100644
 -Hello World
 +Hello Mars
  Hello Again
+ 
 ````
 
 Commit it again:
  
 ````
-vagrant@precise64:~/Lab-03$ git commit -m "3rd commit"
-[master a077b45] 3rd commit
+teststud@seis660:~/Lab-03$ git commit teststud-testfile.md -m "third commit"
+[master d9b8c5d] third commit
+ Committer: test <teststud@seis660.gps.stthomas.edu>
 [... email error message ...]
  1 file changed, 1 insertion(+)
 ````
@@ -211,10 +227,9 @@ vagrant@precise64:~/Lab-03$ git commit -m "3rd commit"
 Now, let's look at our commit history:
 
 ````
-vagrant@precise64:~/Lab-03$ git log -p teststud-testfile.md
-commit 8057ec263df1830de0099907be08ecc44bd509ff
-Author: vagrant <vagrant@precise64.(none)>
-Date:   Wed Feb 18 00:32:49 2015 +0000
+commit d9b8c5d55c99279f6280c4ffb439c448f0097880
+Author: test <teststud@seis660.gps.stthomas.edu>
+Date:   Wed Feb 18 19:29:00 2015 -0600
 
     third commit
 
@@ -228,9 +243,9 @@ index fcb9459..dcc7a8e 100644
  Hello Again
  
 
-commit b61fe735241bd17493e4e0e8222bc9dbd38ca879
-Author: vagrant <vagrant@precise64.(none)>
-Date:   Wed Feb 18 00:30:43 2015 +0000
+commit becf9ae31a722d852c4680f3839f42a628d32162
+Author: test <teststud@seis660.gps.stthomas.edu>
+Date:   Wed Feb 18 19:27:22 2015 -0600
 
     second commit
 
@@ -243,9 +258,9 @@ index 9801343..fcb9459 100644
 +Hello Again
  
 
-commit 2d7f98a139ffcef0ea1ceaf47b7ee7ec4e4fefd6
-Author: vagrant <vagrant@precise64.(none)>
-Date:   Wed Feb 18 00:29:59 2015 +0000
+commit 312919f65be24cb9b3ec32f5e17082f3a5bc63e1
+Author: test <teststud@seis660.gps.stthomas.edu>
+Date:   Wed Feb 18 19:23:15 2015 -0600
 
     my first commit
 
@@ -257,36 +272,52 @@ index 0000000..9801343
 @@ -0,0 +1,2 @@
 +Hello World
 +
-````
-
-All of these changes have been locally committed to your git instance on your Vagrant virtual machine. Let's send them back up to your fork at Github:
 
 ````
-vagrant@precise64:~/Lab-03$ git push origin master
+
+Hit "q" to exit the commit review. (You can keep going back, but then you are getting into earlier commits on the cloned repository that I did while setting it up. More on that later.)
+
+All of these changes have been locally committed to your git instance on your Vagrant virtual machine. Let's send them back up to your fork at Github. You will need to authenticate (we could set up ssh to github, but not right now):
+
+````
+teststud@seis660:~/Lab-03$ git push origin master
 Username for 'https://github.com': CharlesTBetz
 Password for 'https://CharlesTBetz@github.com': 
+Counting objects: 9, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (9/9), 749 bytes | 0 bytes/s, done.
+Total 9 (delta 3), reused 0 (delta 0)
 To https://github.com/CharlesTBetz/Lab-03.git
-   99bd033..8057ec2  master -> master
-vagrant@precise64:~/Lab-03$ 
+   88af368..d9b8c5d  master -> master
 ````
+
+At this point you have pushed your file up to your LOCAL fork of the Lab-03 repository. I cannot see it unless I navigate to your Github site. 
 
 Go back to your browser and issue a pull request:
 
 ![pull](resources/pull.jpg)
 
-If your work is acceptable, I will allow it to be merged back into mainline. 
+If your work is acceptable, I will allow it to be merged back into mainline.
 
-There is much to learn about git and this lab is not intended to be a full tutorial. We will cover further aspects as necessary. 
+[Instructor's note to self: Need to create a branch representing the semester as distinct from mainline.] 
+
+There is much to learn about git and this lab is not intended to be a full tutorial, but rather means to an end, and a quick flavor of the techniques. We will cover further aspects as necessary. 
 
 ##Part 3: Automated provisioning
 
 This section will bring together your VM work with git, as you develop a script to automate your activities and commit it to source control. 
 
+**Vagrant up from the lab directory**
+We will not vagrant up from your ~/vagrant directory. Instead, we will vagrant up from your ~/Lab-03 directory. 
+
+
+
 **Script your work**
 
 Write a shell script that automates the directory creation and tree installation and use. You can base it on starter.sh but you need to rename it. Review your Unix commands as necessary. 
 
-  * Use Nano. Notice the shebang (#!/bin/bash) at the top. 
+  * Use Nano. Notice the shebang (#!/bin/bash) at the top of starter.sh. 
 
   * Name it YourID-Lab03.sh
 
