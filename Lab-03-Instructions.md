@@ -71,11 +71,10 @@ Now, output the tree to a file. How?
 
     vagrant@precise64:~$tree > tree.txt
 
-Wipe the VM & reload
-Create your Vagrant VM and log into it. 
 
 Why did I make the directory structure so detailed? This is typical of setting up infrastructure as code - you need to be able to maintain focus and successfully set up instructions that are both complicated and yet repetitive. 
 
+Exit your VM. The next section is done on the main server, not in your VM. 
 
 ## Part 2: Working with git
 
@@ -89,42 +88,31 @@ Go to https://github.com/StThomas-SEIS660/Lab-03 and fork the repo. Press the Fo
 
 ![fork](resources/fork.jpg)
 
-
 Now, go to your home account on Github and find the URL for the forked repository. 
 
 Important: you should NOT be copying this:
 
-https://github.com/StThomas-SEIS660/Lab-03
+    https://github.com/StThomas-SEIS660/Lab-03
 
 Instead, it should look like this:
 
-https://github.com/your_Github_name/Lab-03
+    https://github.com/your_Github_name/Lab-03
 
-
-**Install git**
-
-Let's install git on the virtual machine. Be sure you are in 
-your home directory. 
-
-    vagrant@precise64:~$cd 
-    vagrant@precise64:~$sudo apt-get install git
-    
-
-Notice you can sudo (run administrative commands) here. It's your machine!
-
-Clone the Github repository you forked as Lesson 03 to your VM, in your home directory **on the VM**. 
+Clone the Github repository you forked as Lab-03 to your home directory /home/student/YourID/. 
 
 ````
-vagrant@precise64:~$ git clone https://github.com/CharlesTBetz/Lab-03.git
+teststud@seis660:~$ git clone https://github.com/YourID/Lab-03.git
 Cloning into 'Lab-03'...
-remote: Counting objects: 31, done.
-remote: Compressing objects: 100% (20/20), done.
-remote: Total 31 (delta 7), reused 31 (delta 7), pack-reused 0
-Unpacking objects: 100% (31/31), done.
-vagrant@precise64:~$ 
+remote: Counting objects: 43, done.
+remote: Compressing objects: 100% (26/26), done.
+remote: Total 43 (delta 11), reused 42 (delta 10)
+Unpacking objects: 100% (43/43), done.
+Checking connectivity... done.
+teststud@seis660:~$ 
+
 ````
 
-Notice I used the username CharlesTBetz; **this must be replaced with your Github user name**. 
+Notice the username YourID; **this must be replaced with your Github user name**. 
 
 **Try git out**
 
@@ -288,15 +276,15 @@ Go back to your browser and issue a pull request:
 
 If your work is acceptable, I will allow it to be merged back into mainline. 
 
-Finally, destroy your VM. 
-
 There is much to learn about git and this lab is not intended to be a full tutorial. We will cover further aspects as necessary. 
 
 ##Part 3: Automated provisioning
 
+This section will bring together your VM work with git, as you develop a script to automate your activities and commit it to source control. 
+
 **Script your work**
 
-Write a shell script that automates the git installation, directory creation and tree installation and use. You can base it on starter.sh but you need to rename it. Review your Unix commands as necessary. 
+Write a shell script that automates the directory creation and tree installation and use. You can base it on starter.sh but you need to rename it. Review your Unix commands as necessary. 
 
   * Use Nano. Notice the shebang (#!/bin/bash) at the top. 
 
@@ -431,7 +419,9 @@ Run it & confirm it works
 
 Review differences and check in. 
 
-Commit it to your github fork. NOTE: IF YOU DO NOT DO THIS YOU WILL LOSE YOUR SCRIPT WHEN YOU DESTROY YOUR VM:
+*You are now doing "infrastructure as code."* 
+
+When you are satisfied, push it back into your github remote account and issue a pull request so that I review it. Commit it to your github fork (on your remote account). NOTE: IF YOU DO NOT DO PUSH IT BACK TO GITHUB YOU WILL LOSE YOUR SCRIPT WHEN YOU DESTROY YOUR VM!
 
  ````
 vagrant@precise64:~/Lab-03$ git push origin master
@@ -440,10 +430,6 @@ Password for 'https://CharlesTBetz@github.com':
 To https://github.com/CharlesTBetz/Lab-03.git
    8057ec2..b5f0950  master -> master
 ````
-
-*You are now doing "infrastructure as code."* 
-
-When you are satisfied, check it back into your github remote account and issue a pull request so that I review it. 
 
 Vagrant destroy your vm:
 
