@@ -84,7 +84,7 @@ Exit and destroy your VM.
 
 ````
 vagrant@precise64:~$ exit
-teststud@serverXXX:~/vagrant$ vagrant destroy -f
+YourStudentID@serverXXX:~/vagrant$ vagrant destroy -f
 ==> default: Forcing shutdown of VM...
 ==> default: Destroying VM and associated drives...
 ````
@@ -119,15 +119,15 @@ Instead, it should look like this:
 Clone the Github repository you forked as Lab-03 to your home directory /home/student/YourID/. Go into it and verify the contents look as below. Notice the username YourID; **this must be replaced with your Github user name**. 
 
 ````
-teststud@serverXXX:~$ git clone https://github.com/YourGithubID/Lab-03.git
+YourStudentID@serverXXX:~$ git clone https://github.com/YourGithubID/Lab-03.git
 Cloning into 'Lab-03'...
 remote: Counting objects: 78, done.
 remote: Compressing objects: 100% (60/60), done.
 remote: Total 78 (delta 31), reused 58 (delta 11)
 Unpacking objects: 100% (78/78), done.
 Checking connectivity... done.
-teststud@serverXXX:~$ cd Lab-03/
-teststud@serverXXX:~/Lab-03$ ls
+YourStudentID@serverXXX:~$ cd Lab-03/
+YourStudentID@serverXXX:~/Lab-03$ ls
 Lab-03-Instructions.md	LICENSE  README.md  resources  starter.sh  Vagrantfile
 ````
 
@@ -139,9 +139,9 @@ Be sure you are in the new Lab-03 directory that git created:
 
 Create a file called YourStudentID-testfile, e.g. stud0001-testfile.md.
 
-    teststud@serverXXX:~/Lab-03$ nano your_student_ID-testfile.md 
+    YourStudentID@serverXXX:~/Lab-03$ nano your_student_ID-testfile.md 
     
-(Again, do not put in "YourStudentID" literally. Substitute your student ID. Notice the following examples were done with "teststud" as the student ID.)
+(Again, do not put in "YourStudentID" literally. Substitute your student ID. Notice the following examples were done with "YourStudentID" as the student ID.)
     
 Put some Markdown content in it, starting with  the phrase "Hello World." ([What's Markdown?](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)).
 
@@ -149,14 +149,14 @@ Exit nano (ctrl-X, saving as prompted).
 
 Add your file to your git repository
 
-    teststud@serverXXX:~/Lab-03$ git add YourStudentID-testfile.md 
-    teststud@serverXXX:~/Lab-03$ git commit -m "my first commit"
+    YourStudentID@serverXXX:~/Lab-03$ git add YourStudentID-testfile.md 
+    YourStudentID@serverXXX:~/Lab-03$ git commit -m "my first commit"
     
 You will get:
 
 ````
 [master 312919f] my first commit
- Committer: test <teststud@serverXXX.gps.stthomas.edu>
+ Committer: test <YourStudentID@serverXXX.gps.stthomas.edu>
 Your name and email address were configured automatically based
 on your username and hostname. Please check that they are accurate.
 You can suppress this message by setting them explicitly:
@@ -169,25 +169,25 @@ After doing this, you may fix the identity used for this commit with:
     git commit --amend --reset-author
 
  1 file changed, 2 insertions(+)
- create mode 100644 teststud-testfile.md
+ create mode 100644 YourStudentID-testfile.md
 ````
 
 Disregard the issue with your user name and email for now.
 
 Now, edit the file again. 
 
-    teststud@serverXXX:~/Lab-03$ nano teststud-testfile.md
+    YourStudentID@serverXXX:~/Lab-03$ nano YourStudentID-testfile.md
 
 Add "Hello Again" as a second line and exit nano in the usual way. 
 
 You have now made a change, relative to what you committed. You can see that change through issuing the command 'git diff':
 
 ````
-teststud@serverXXX:~/Lab-03$ git diff
-diff --git a/teststud-testfile.md b/teststud-testfile.md
+YourStudentID@serverXXX:~/Lab-03$ git diff
+diff --git a/YourStudentID-testfile.md b/YourStudentID-testfile.md
 index 9801343..fcb9459 100644
---- a/teststud-testfile.md
-+++ b/teststud-testfile.md
+--- a/YourStudentID-testfile.md
++++ b/YourStudentID-testfile.md
 @@ -1,2 +1,3 @@
  Hello World
 +Hello Again
@@ -199,9 +199,9 @@ We will be covering git in more detail as we go, but this clearly shows that Hel
 Commit it again (you only need to add it once): 
 
 ````
-teststud@serverXXX:~/Lab-03$ git commit teststud-testfile.md -m "second commit"
+YourStudentID@serverXXX:~/Lab-03$ git commit YourStudentID-testfile.md -m "second commit"
 [master becf9ae] second commit
- Committer: test <teststud@serverXXX.gps.stthomas.edu>
+ Committer: test <YourStudentID@serverXXX.gps.stthomas.edu>
 [ ... email error message ... ]
 
  1 file changed, 1 insertion(+)
@@ -212,11 +212,11 @@ Go back into nano and replace "World" with "Mars." Exit nano.
 Run git diff again:
 
 ````
-teststud@serverXXX:~/Lab-03$ git diff
-diff --git a/teststud-testfile.md b/teststud-testfile.md
+YourStudentID@serverXXX:~/Lab-03$ git diff
+diff --git a/YourStudentID-testfile.md b/YourStudentID-testfile.md
 index fcb9459..dcc7a8e 100644
---- a/teststud-testfile.md
-+++ b/teststud-testfile.md
+--- a/YourStudentID-testfile.md
++++ b/YourStudentID-testfile.md
 @@ -1,3 +1,3 @@
 -Hello World
 +Hello Mars
@@ -227,9 +227,9 @@ index fcb9459..dcc7a8e 100644
 Commit it again:
  
 ````
-teststud@serverXXX:~/Lab-03$ git commit teststud-testfile.md -m "third commit"
+YourStudentID@serverXXX:~/Lab-03$ git commit YourStudentID-testfile.md -m "third commit"
 [master d9b8c5d] third commit
- Committer: test <teststud@serverXXX.gps.stthomas.edu>
+ Committer: test <YourStudentID@serverXXX.gps.stthomas.edu>
 [... email error message ...]
  1 file changed, 1 insertion(+)
 ````
@@ -238,18 +238,18 @@ Now, let's look at our commit history:
 
 ````
 
-teststud@serverXXX:~/Lab-03$ git log -p
+YourStudentID@serverXXX:~/Lab-03$ git log -p
 
 commit d9b8c5d55c99279f6280c4ffb439c448f0097880
-Author: test <teststud@serverXXX.gps.stthomas.edu>
+Author: test <YourStudentID@serverXXX.gps.stthomas.edu>
 Date:   Wed Feb 18 19:29:00 2015 -0600
 
     third commit
 
-diff --git a/teststud-testfile.md b/teststud-testfile.md
+diff --git a/YourStudentID-testfile.md b/YourStudentID-testfile.md
 index fcb9459..dcc7a8e 100644
---- a/teststud-testfile.md
-+++ b/teststud-testfile.md
+--- a/YourStudentID-testfile.md
++++ b/YourStudentID-testfile.md
 @@ -1,3 +1,3 @@
 -Hello World
 +Hello Mars
@@ -257,31 +257,31 @@ index fcb9459..dcc7a8e 100644
  
 
 commit becf9ae31a722d852c4680f3839f42a628d32162
-Author: test <teststud@serverXXX.gps.stthomas.edu>
+Author: test <YourStudentID@serverXXX.gps.stthomas.edu>
 Date:   Wed Feb 18 19:27:22 2015 -0600
 
     second commit
 
-diff --git a/teststud-testfile.md b/teststud-testfile.md
+diff --git a/YourStudentID-testfile.md b/YourStudentID-testfile.md
 index 9801343..fcb9459 100644
---- a/teststud-testfile.md
-+++ b/teststud-testfile.md
+--- a/YourStudentID-testfile.md
++++ b/YourStudentID-testfile.md
 @@ -1,2 +1,3 @@
  Hello World
 +Hello Again
  
 
 commit 312919f65be24cb9b3ec32f5e17082f3a5bc63e1
-Author: test <teststud@serverXXX.gps.stthomas.edu>
+Author: test <YourStudentID@serverXXX.gps.stthomas.edu>
 Date:   Wed Feb 18 19:23:15 2015 -0600
 
     my first commit
 
-diff --git a/teststud-testfile.md b/teststud-testfile.md
+diff --git a/YourStudentID-testfile.md b/YourStudentID-testfile.md
 new file mode 100644
 index 0000000..9801343
 --- /dev/null
-+++ b/teststud-testfile.md
++++ b/YourStudentID-testfile.md
 @@ -0,0 +1,2 @@
 +Hello World
 +
@@ -293,7 +293,7 @@ Hit "q" to exit the commit review. (You can keep going back, but then you are ge
 All of these changes have been locally committed to your git instance on your Vagrant virtual machine. Let's send them back up to your fork at Github. You will need to authenticate (we could set up ssh to github, but not right now):
 
 ````
-teststud@serverXXX:~/Lab-03$ git push origin master
+YourStudentID@serverXXX:~/Lab-03$ git push origin master
 Username for 'https://github.com': YourGithubID
 Password for 'https://YourGithubID@github.com': 
 Counting objects: 9, done.
@@ -323,8 +323,8 @@ This section will bring together your VM work with git, as you develop a script 
 We will not vagrant up from your ~/vagrant directory. Instead, we will vagrant up from your ~/Lab-03 directory. A Vagrantfile has been placed there with the correct private key location. 
 
 ````
-teststud@serverXXX:~$ cd Lab-03/
-teststud@serverXXX:~/Lab-03$ vagrant up
+YourStudentID@serverXXX:~$ cd Lab-03/
+YourStudentID@serverXXX:~/Lab-03$ vagrant up
 Bringing machine 'default' up with 'virtualbox' provider...
 ==> default: Importing base box 'precise64'...
 ==> default: Matching MAC address for NAT networking...
@@ -352,7 +352,7 @@ vagrant@127.0.0.1's password:vagrant
 stdin: is not a tty
 ==> default: Checking for guest additions in VM...
 ==> default: Mounting shared folders...
-    default: /vagrant => /home/student/teststud/Lab-03
+    default: /vagrant => /home/student/YourStudentID/Lab-03
 ````
 
 **Script your work**
@@ -360,7 +360,7 @@ stdin: is not a tty
 Go into your VM:
 
 ````
-teststud@serverXXX:~/Lab-03$ vagrant ssh
+YourStudentID@serverXXX:~/Lab-03$ vagrant ssh
 Welcome to Ubuntu 12.04 LTS (GNU/Linux 3.2.0-23-generic x86_64)
 
  * Documentation:  https://help.ubuntu.com/
@@ -379,7 +379,7 @@ This is important. Your /vagrant directory is linked to the host machine on the 
 ````
 vagrant@precise64:~$ cd /vagrant
 vagrant@precise64:/vagrant$ ls
-Lab-03-Instructions.md  LICENSE  README.md  resources  starter.sh  teststud-testfile.md  Vagrantfile
+Lab-03-Instructions.md  LICENSE  README.md  resources  starter.sh  YourStudentID-testfile.md  Vagrantfile
 ````
 
 Now for the main work of Part 3:
@@ -397,19 +397,19 @@ Review your Unix commands as necessary. The install commands are:
 
   * Use Nano. Notice the shebang (#!/bin/bash) at the top of starter.sh. 
 
-  * Name it YourID-Lab03.sh
+  * Name it YourStudentID-Lab03.sh
 
   * You will need to change (chmod) the permissions correctly to run it. 
   
 So:
 
-    vagrant@precise64:/vagrant$ cp starter.sh YourID-Lab03.sh
-    vagrant@precise64:/vagrant$ sudo chmod 755 YourID-Lab03.sh   
+    vagrant@precise64:/vagrant$ cp starter.sh YourStudentID-Lab03.sh
+    vagrant@precise64:/vagrant$ sudo chmod 755 YourStudentID-Lab03.sh   
         
-Remember to substitute your actual ID for "YourID." 
+Remember to substitute your actual ID for "YourStudentID." 
 
 ````
-vagrant@vagrant:/vagrant$ sudo chmod 755 teststud-Lab03.sh 
+vagrant@vagrant:/vagrant$ sudo chmod 755 YourStudentID-Lab03.sh 
 vagrant@vagrant:/vagrant$ ls -l
 total 44
 -rw-r--r-- 1 vagrant vagrant 14183 Feb 20 15:22 Lab-03-Instructions.md
@@ -417,23 +417,23 @@ total 44
 -rw-r--r-- 1 vagrant vagrant    33 Feb 20 15:22 README.md
 drwxr-xr-x 1 vagrant vagrant  4096 Feb 20 15:22 resources
 -rw-r--r-- 1 vagrant vagrant   152 Feb 20 15:22 starter.sh
--rwxr-xr-x 1 vagrant vagrant   152 Feb 20 15:58 teststud-Lab03.sh
--rw-r--r-- 1 vagrant vagrant    24 Feb 20 15:33 teststud-testfile.md
+-rwxr-xr-x 1 vagrant vagrant   152 Feb 20 15:58 YourStudentID-Lab03.sh
+-rw-r--r-- 1 vagrant vagrant    24 Feb 20 15:33 YourStudentID-testfile.md
 -rw-r--r-- 1 vagrant vagrant   296 Feb 20 15:45 Vagrantfile
 ````
 
 Run the script to confirm you can execute it (it's still empty, and will run fine - it just won't do anything): 
 
-    vagrant@precise64:~/Lab-03$ ./YourID-Lab03.sh  <- notice the "./"
+    vagrant@precise64:~/Lab-03$ ./YourStudentID-Lab03.sh  <- notice the "./"
     
 Create your script. 
 
-    vagrant@precise64:~/Lab-03$ nano YourID-Lab03.sh  
+    vagrant@precise64:~/Lab-03$ nano YourStudentID-Lab03.sh  
 
 Oops, something seems to be wrong when you run it:
 
 ````
-vagrant@precise64:~/Lab-03$ ./teststud-Lab03.sh 
+vagrant@precise64:~/Lab-03$ ./YourStudentID-Lab03.sh 
 E: Could not open lock file /var/lib/dpkg/lock - open (13: Permission denied)
 E: Unable to lock the administration directory (/var/lib/dpkg/), are you root?
 ````
@@ -441,7 +441,7 @@ E: Unable to lock the administration directory (/var/lib/dpkg/), are you root?
 Because the script has installations in it, you need to run it as superuser:
 
 ```` 
-vagrant@precise64:~/Lab-03$ sudo ./teststud-Lab03.sh    
+vagrant@precise64:~/Lab-03$ sudo ./YourStudentID-Lab03.sh    
 Reading package lists... Done
 Building dependency tree       
 Reading state information... Done
@@ -480,13 +480,13 @@ if you want to reset your environment completely.
 Once you are happy with your script, add and commit locally:
 
 ````
-vagrant@precise64:~/Lab-03$ git add teststud-Lab03.sh
-vagrant@precise64:~/Lab-03$ git commit teststud-Lab03.sh -m "script commit"
+vagrant@precise64:~/Lab-03$ git add YourStudentID-Lab03.sh
+vagrant@precise64:~/Lab-03$ git commit YourStudentID-Lab03.sh -m "script commit"
 [master b5f0950] script commit
  Committer: vagrant <vagrant@precise64.(none)>
 [email error]
  1 file changed, 10 insertions(+)
- create mode 100755 teststud-Lab03.sh
+ create mode 100755 YourStudentID-Lab03.sh
 ````
 
 In reviewing the directory structure, there are duplicate directories. Also, it is getting messy with three directories at the same level.  
@@ -535,7 +535,7 @@ vagrant@vagrant:/vagrant$ tree
 
 Check in and review differences
 
-    vagrant@vagrant:/vagrant$ git commit teststud-Lab03.sh -m "2nd script commit"
+    vagrant@vagrant:/vagrant$ git commit YourStudentID-Lab03.sh -m "2nd script commit"
     vagrant@vagrant:/vagrant$ git log -p
 
 *You are now doing "infrastructure as code."* You have automated a complex set of commands, checked them into source control, made significant changes, and checked in again. You can see both versions of your script. 
@@ -544,13 +544,13 @@ When you are satisfied, push it back into your github remote account.
 
 ````
 vagrant@vagrant:/vagrant$ git push origin master
-Username for 'https://github.com': CharlesTBetz
-Password for 'https://CharlesTBetz@github.com': 
+Username for 'https://github.com': YourGithubID
+Password for 'https://YourGithubID@github.com': 
 Counting objects: 8, done.
 Compressing objects: 100% (6/6), done.
 Writing objects: 100% (6/6), 886 bytes | 0 bytes/s, done.
 Total 6 (delta 3), reused 0 (delta 0)
-To https://github.com/CharlesTBetz/Lab-03.git
+To https://github.com/YourGithubIDYourGithubID/Lab-03.git
    1c23c80..72958e4  master -> master
 ````
 Note, your script is at risk until you do this. 
@@ -560,12 +560,12 @@ Exit and vagrant destroy your vm:
     vagrant@vagrant:/vagrant$ exit
 	logout
 	Connection to 127.0.0.1 closed.
-	teststud@serverXXX:~/Lab-03$ vagrant destroy
+	YourStudentID@serverXXX:~/Lab-03$ vagrant destroy
 	
 Notice that your script is still in your ~/Lab-03 directory. 
 
 ````
-teststud@serverXXX:~/Lab-03$ cat teststud-Lab03.sh 
+YourStudentID@serverXXX:~/Lab-03$ cat YourStudentID-Lab03.sh 
 #!/bin/bash
 # Starter shell script
 # Rename as YourID-Lab03.sh
