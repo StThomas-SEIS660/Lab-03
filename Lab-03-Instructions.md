@@ -5,13 +5,14 @@ In this lab, you will get a very simple introduction to the concept of "infrastr
 
 **Prerequisites**
 
-You must have run the Linux tutorial (or be comfortable otherwise with Linux command-line tools). 
+Lab 1: You must have configured ssh and run the Linux tutorial (or be comfortable otherwise with Linux command-line tools). 
 
-You must have successfully created your own virtual machine (VM) using Vagrant. 
+Lab 2: You must have successfully created your own virtual machine (VM) using Vagrant. 
 
-You will do the exercises on your new Vagrant VM. 
 
 ## Part 1: Command line operations ##
+
+You will do the exercises in this part on your new Vagrant VM. 
 
 Using the skills you learned in the previous lab,  perform the following steps:
 
@@ -70,7 +71,10 @@ vagrant@precise64:~$ tree
 Now, output the tree to a file. How? 
 
     vagrant@precise64:~$tree > tree.txt
+    
+Review the text file: 
 
+    vagrant@precise64:~$cat tree.txt
 
 Why did I make the directory structure so detailed? This is typical of setting up infrastructure as code - you need to be able to maintain focus and successfully set up instructions that are both complicated and yet repetitive. 
 
@@ -83,9 +87,9 @@ teststud@seis660:~/vagrant$ vagrant destroy -f
 ==> default: Destroying VM and associated drives...
 ````
 
-The next section is done on the main server, not in your VM. 
-
 ## Part 2: Working with git
+
+You will do the exercises in part 2 on the main server, not your VM.
 
 **Set up Github.com & fork this lab**
 
@@ -227,6 +231,7 @@ teststud@seis660:~/Lab-03$ git commit teststud-testfile.md -m "third commit"
 Now, let's look at our commit history:
 
 ````
+
 commit d9b8c5d55c99279f6280c4ffb439c448f0097880
 Author: test <teststud@seis660.gps.stthomas.edu>
 Date:   Wed Feb 18 19:29:00 2015 -0600
@@ -298,9 +303,8 @@ Go back to your browser and issue a pull request:
 
 ![pull](resources/pull.jpg)
 
-If your work is acceptable, I will allow it to be merged back into mainline.
+If your work is acceptable, I will allow it to be merged back into the main Lab-03 repository (actually the Spring 2015 branch).
 
-[Instructor's note to self: Need to create a branch representing the semester as distinct from mainline.] 
 
 There is much to learn about git and this lab is not intended to be a full tutorial, but rather means to an end, and a quick flavor of the techniques. We will cover further aspects as necessary. 
 
@@ -309,13 +313,56 @@ There is much to learn about git and this lab is not intended to be a full tutor
 This section will bring together your VM work with git, as you develop a script to automate your activities and commit it to source control. 
 
 **Vagrant up from the lab directory**
-We will not vagrant up from your ~/vagrant directory. Instead, we will vagrant up from your ~/Lab-03 directory. 
+We will not vagrant up from your ~/vagrant directory. Instead, we will vagrant up from your ~/Lab-03 directory. A Vagrantfile has been placed there with the correct private key location. 
 
-
+````
+teststud@seis660:~$ cd Lab-03/
+teststud@seis660:~/Lab-03$ vagrant up
+Bringing machine 'default' up with 'virtualbox' provider...
+==> default: Importing base box 'precise64'...
+==> default: Matching MAC address for NAT networking...
+[ ... a whole lot of stuff ... ]
+stdin: is not a tty
+==> default: Checking for guest additions in VM...
+==> default: Mounting shared folders...
+    default: /vagrant => /home/student/teststud/Lab-03
+````
 
 **Script your work**
 
-Write a shell script that automates the directory creation and tree installation and use. You can base it on starter.sh but you need to rename it. Review your Unix commands as necessary. 
+Go into your VM:
+
+````
+teststud@seis660:~/Lab-03$ vagrant ssh
+Welcome to Ubuntu 12.04 LTS (GNU/Linux 3.2.0-23-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com/
+New release '14.04.1 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+Welcome to your Vagrant-built virtual machine.
+Last login: Fri Sep 14 06:23:18 2012 from 10.0.2.2
+vagrant@precise64:~$ 
+````
+
+Go to the /vagrant directory. (Not to be confused with /home/vagrant.) 
+
+This is important. Your /vagrant directory is linked to the host machine on the outside. In fact, if you examine it, you will realize it is your ~/Lab-03 directory!
+
+````
+vagrant@precise64:~$ cd /vagrant
+vagrant@precise64:/vagrant$ ls
+Lab-03-Instructions.md  LICENSE  README.md  resources  starter.sh  Vagrantfile
+````
+
+Starting with starter.sh, write a shell script that 
+
+1. automates the directory creation and 
+2. tree installation and use.  
+
+Review your Unix commands as necessary. The command to install tree is 
+
+apt-get install tree
 
   * Use Nano. Notice the shebang (#!/bin/bash) at the top of starter.sh. 
 
@@ -325,9 +372,10 @@ Write a shell script that automates the directory creation and tree installation
   
 So:
 
-    vagrant@precise64:~$ cd Lab-03/
-    vagrant@precise64:~/Lab-03$ nano starter.sh 
-    
+    vagrant@precise64:/vagrant$ cp starter.sh YourID-Lab03.sh
+        
+Remember to substitute your actual ID for "YourID." 
+
 Create your script. Use "tree" to see your results and "rm -rf A C D" to delete the directories if you need to run the script several times to perfect it 
 
 ````
@@ -356,8 +404,7 @@ Oops, something seems to be wrong:
 vagrant@precise64:~/Lab-03$ ./teststud-Lab03.sh 
 E: Could not open lock file /var/lib/dpkg/lock - open (13: Permission denied)
 E: Unable to lock the administration directory (/var/lib/dpkg/), are you root?
-E: Could not open lock file /var/lib/dpkg/lock - open (13: Permission denied)
-E: Unable to lock the administration directory (/var/lib/dpkg/), are you root? 
+ 
 ````
 
 Because the script has installations in it, you need to run it as superuser:
@@ -378,11 +425,11 @@ tree is already the newest version.
 
 What did it do?
 
-First, it did NOT install git or tree, since those are already there. That's ok. 
+First, it did NOT install tree, since that is already there. That's ok. 
 Second, it DID create your directories and files:
 
 ````
-vagrant@precise64:~/Lab-03$ tree
+vagrant@precise64:~/vagrant$ tree
 .
 |-- A
 |   |-- aa
@@ -444,7 +491,7 @@ After doing this, you may fix the identity used for this commit with:
  create mode 100755 teststud-Lab03.sh
  ````
 
-Change it so that it no longer creates the E subdirectory under C. 
+In reviewing the directory structure, there are duplicate directories. Fix the directory creation logic so that there are not duplicate C and D directories (you will need to use another letter). 
 
 Run it & confirm it works
 
@@ -469,15 +516,21 @@ Vagrant destroy your vm:
 
 **Automate provisioning with Vagrant**
 
-Clear all the comments out of your Vagrantfile. 
+Edit your Vagrantfile so that it calls your *-Lab03.sh script when you provision the machine. Add the "vm.provision" line, changing MyID to your ID. 
 
-Edit your Vagrantfile so that it calls your *-Lab03.sh script when you provision the machine. 
+````
+Vagrant.configure(2) do |config|
+  config.vm.box = "precise64"
+  config.ssh.private_key_path =   "~/.ssh/insecure_private_key"
+  config.vm.provision              :shell, path: "./MyID-Lab03.sh"
+end
+````
 
 Vagrant up your machine and ssh into it, verify that your script has been run. Including installing tree. 
 
 **Using Chef instead of shell**
 
-Write a Chef recipe that is run by Vagrant to do the same thing. You cannot just call your previous script.
+Advance notice: Next week, we will Write a Chef recipe that is run by Vagrant to do the same thing. You cannot just call your previous script.
 
 Run, check in to Github when succeeds, and alter it so it also installs curl
 
