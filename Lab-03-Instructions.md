@@ -593,7 +593,7 @@ Edit your Vagrantfile so that it calls your *-Lab03.sh script when you provision
 Vagrant.configure(2) do |config|
   config.vm.box = "precise64"
   config.ssh.private_key_path =   "~/.ssh/insecure_private_key"
-  config.vm.provision              :shell, path: "./MyID-Lab03.sh"
+  config.vm.provision             :shell, path: "./MyStudentID-Lab03.sh"
 end
 ````
 
@@ -606,5 +606,5 @@ Re-commit your Vagrantfile and push it back to origin.
 
 Issue a pull request for me to review your work. 
 
-That is the end of this lab. Congratulations, this was a lot of work. Next week, we will Write a Chef recipe that is run by Vagrant to do the same thing, and start building a continuous integration pipeline with Java, JUnit and Ant.
+That is the end of this lab. Congratulations, this was a lot of work. Next week, we will start building a continuous integration pipeline with git, Java, JUnit, Tomcat, and Ant.
 
