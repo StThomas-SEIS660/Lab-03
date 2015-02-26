@@ -4,7 +4,7 @@
 
 Vagrant.configure(2) do |config|
   
-  config.vm.box = "precise64"
+  config.vm.box = "config.vm.box = "opscode-ubuntu-14.04a""
   config.ssh.private_key_path = "~/.ssh/insecure_private_key"
 
 end
