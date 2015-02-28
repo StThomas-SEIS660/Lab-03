@@ -417,11 +417,11 @@ drwxr-xr-x 1 vagrant vagrant  4096 Feb 20 15:22 resources
 
 Run the script to confirm you can execute it (it's still empty, and will run fine - it just won't do anything): 
 
-    vagrant@precise64:~/Lab-03$ ./YourStudentID-Lab03.sh  <- notice the "./"
+    vagrant@XXXXX:~/vagrant$ ./YourStudentID-Lab03.sh  <- notice the "./"
     
 Create your script. 
 
-    vagrant@precise64:~/Lab-03$ nano YourStudentID-Lab03.sh  
+    vagrant@XXXXX:~/vagrant$ nano YourStudentID-Lab03.sh  
 
 Oops, something seems to be wrong when you run it:
 
