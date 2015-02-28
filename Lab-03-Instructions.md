@@ -137,7 +137,7 @@ Lab-03-Instructions.md	LICENSE  README.md  resources  starter.sh  Vagrantfile
 
 Be sure you are in the new Lab-03 directory that git created:
 
-    vagrant@precise64:~$ cd ~/Lab-03/
+    YourStudentID@serverXXX:~$ cd ~/Lab-03/
 
 Create a file called YourStudentID-testfile, e.g. stud0001-testfile.md.
 
@@ -417,16 +417,16 @@ drwxr-xr-x 1 vagrant vagrant  4096 Feb 20 15:22 resources
 
 Run the script to confirm you can execute it (it's still empty, and will run fine - it just won't do anything): 
 
-    vagrant@precise64:~/Lab-03$ ./YourStudentID-Lab03.sh  <- notice the "./"
+    vagrant@XXXXX:~/vagrant$ ./YourStudentID-Lab03.sh  <- notice the "./"
     
 Create your script. 
 
-    vagrant@precise64:~/Lab-03$ nano YourStudentID-Lab03.sh  
+    vagrant@XXXXX:~/vagrant$ nano YourStudentID-Lab03.sh  
 
 Oops, something seems to be wrong when you run it:
 
 ````
-vagrant@precise64:~/Lab-03$ ./YourStudentID-Lab03.sh 
+vagrant@XXXXX:/vagrant$ ./YourStudentID-Lab03.sh 
 E: Could not open lock file /var/lib/dpkg/lock - open (13: Permission denied)
 E: Unable to lock the administration directory (/var/lib/dpkg/), are you root?
 ````
@@ -434,7 +434,7 @@ E: Unable to lock the administration directory (/var/lib/dpkg/), are you root?
 Because the script has installations in it, you need to run it as superuser:
 
 ```` 
-vagrant@precise64:~/Lab-03$ sudo ./YourStudentID-Lab03.sh    
+vagrant@XXXXX:/vagrant$ sudo ./YourStudentID-Lab03.sh    
 Reading package lists... Done
 Building dependency tree       
 Reading state information... Done
@@ -455,26 +455,26 @@ Setting up tree (1.6.0-1) ...
 
 Use 
 
-    vagrant@precise64:/vagrant$ tree
+    vagrant@XXXXX:/vagrant:/vagrant$ tree
 
 to see your results and "
 
-    vagrant@precise64:/vagrant$ rm -rf A C D
+    vagrant@XXXXX:/vagrant:/vagrant$ rm -rf A C D
 
 to delete the directories if you need to run the script several times to perfect it. 
 
 You can also:
 
-    vagrant@precise64:/vagrant$ sudo apt-get remove git
-    vagrant@precise64:/vagrant$ sudo apt-get remove tree
+    vagrant@XXXXX:/vagrant:/vagrant$ sudo apt-get remove git
+    vagrant@XXXXX:/vagrant:/vagrant$ sudo apt-get remove tree
     
 if you want to reset your environment completely.  
     
 Once you are happy with your script, add and commit locally:
 
 ````
-vagrant@precise64:~/Lab-03$ git add YourStudentID-Lab03.sh
-vagrant@precise64:~/Lab-03$ git commit YourStudentID-Lab03.sh -m "script commit"
+vagrant@XXXXX:/vagrant$ git add YourStudentID-Lab03.sh
+vagrant@XXXXX:/vagrant$ git commit YourStudentID-Lab03.sh -m "script commit"
 [master b5f0950] script commit
  Committer: vagrant <vagrant@precise64.(none)>
 [email error]
