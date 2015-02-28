@@ -596,9 +596,9 @@ end
 ````
 
 Vagrant up your machine and ssh into it, verify that your script has been run. 
-1. Directory "main" properly configured in /vagrant
-2. git installed (run git --version)
-3. tree installed 
+ 1. Directory "main" properly configured in /vagrant
+ 2. git installed (run git --version)
+ 3. tree installed 
 
 Re-commit your Vagrantfile and push it back to origin. 
 
