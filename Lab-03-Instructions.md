@@ -137,7 +137,7 @@ Lab-03-Instructions.md	LICENSE  README.md  resources  starter.sh  Vagrantfile
 
 Be sure you are in the new Lab-03 directory that git created:
 
-    vYourStudentID@serverXXX:~$ cd ~/Lab-03/
+    YourStudentID@serverXXX:~$ cd ~/Lab-03/
 
 Create a file called YourStudentID-testfile, e.g. stud0001-testfile.md.
 
