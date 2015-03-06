@@ -1,6 +1,6 @@
 #!/bin/bash
 # Starter shell script
-## Rename as baza9762-Lab03.sh
+# Rename as baza9762-Lab03.sh
 # Put commands below
 # To run, type ./starter.sh (you need the "./")
 # It must have permissions starting with a "7"
