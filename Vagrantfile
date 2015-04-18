@@ -4,7 +4,8 @@
 
 Vagrant.configure(2) do |config|
   
-  config.vm.box = "precise64"
-  config.ssh.private_key_path = "~/.ssh/insecure_private_key"
+  config.vm.box = "/var/vagrant/2015-Feb-all/package.box"
+  #config.ssh.private_key_path = "~/.ssh/insecure_private_key"
+  config.vm.provision       :shell, path: "./gilm2743-Lab03.sh"
 
 end
